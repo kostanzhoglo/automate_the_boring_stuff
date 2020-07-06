@@ -32,6 +32,7 @@ while user_choice != 'q':
 
     print(f"{user_wins} Wins, {user_losses} Losses, {user_ties} Ties")
     user_choice = input("Enter your move: (r)ock, (p)aper, (s)cissors or (q)uit:\n")
+    
     pattern = "^r$|^p$|^s$|^q$"
     if (re.search(pattern, user_choice)):
         show_user_choice(user_choice)
