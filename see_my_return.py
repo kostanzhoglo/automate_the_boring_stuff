@@ -13,6 +13,14 @@ def this_will_show_return_value(number):
 this_will_show_return_value(7)          # prints 17 to console.
                                         # return value == None
 
+def this_will_print_and_return_the_return_value(number):
+    new_number = number + 1000
+    print(new_number)
+    return new_number
+
+this_will_print_and_return_the_return_value(51)
+
+
 
 def another_way_to_return_a_value_and_print(secret):
     return 2 * secret               # return value is INTACT.
