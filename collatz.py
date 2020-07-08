@@ -15,14 +15,16 @@ def collatz(number):
         number = answer
         return collatz(number)
 
-
-number_string = input("Please enter a whole number: ")
-try: 
-    number = int(number_string)
-    # if int(number) worked, then user has entered a real integer and we can move on.
-    collatz(number)
-except ValueError:
-    print("Only whole integers are accepted.  I bet you didn't enter a whole integer.")
+real_integer = False
+while not real_integer:
+    number_string = input("Please enter a whole number: ")
+    try: 
+        number = int(number_string)
+        # if int(number) worked, then user has entered a real integer and we can move on.
+        real_integer = True
+    except ValueError:
+        print("Only whole integers are accepted.  I bet you didn't enter a whole integer.")
+collatz(number)
 
 
 
