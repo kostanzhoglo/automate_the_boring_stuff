@@ -1,35 +1,66 @@
-import sys
-
+# this is the best version so far. adds validation of all kinds.
 def collatz(number):
     if number % 2 == 0:
-        answer = number // 2
+        print(number // 2)
+        return number // 2
     else:
-        answer = number * 3 + 1
+        print(number * 3 + 1)
+        return number * 3 + 1
 
-    while answer == 1:
-        print(answer)
-        sys.exit()
+valid = False
 
-    while answer != 1:
-        print(answer)
-        number = answer
-        return collatz(number)
-
-real_integer = False
-while not real_integer:
-    number_string = input("Please enter a whole number: ")
-    try: 
-        number = int(number_string)
-        # if int(number) worked, then user has entered a real integer and we can move on.
-        real_integer = True
+while not valid: 
+    num = input("Please enter a positive integer: ")
+    try:
+        num = int(num)
+        if num < 1:
+            print("Entering 0 or a negative number is not cool dude.")
+        elif num == 1:
+            for i in range(1, 4):
+                num = collatz(int(num))
+            valid = True
+        else:
+            while num != 1:
+                num = collatz(int(num))   
+            valid = True
     except ValueError:
-        print("Only whole integers are accepted.  I bet you didn't enter a whole integer.")
-collatz(number)
+        print("Aw, cmon, enter a Whole Integer!")
 
 
-
+# this was my first attempt. not bad, but i refactored above
+# import sys
 
 # def collatz(number):
+#     if number % 2 == 0:
+#         answer = number // 2
+#     else:
+#         answer = number * 3 + 1
+
+#     while answer == 1:
+#         print(answer)
+#         sys.exit()
+
+#     while answer != 1:
+#         print(answer)
+#         number = answer
+#         return collatz(number)
+
+# real_integer = False
+# while not real_integer:
+#     number_string = input("Please enter a whole number: ")
+#     try: 
+#         number = int(number_string)
+#         # if int(number) worked, then user has entered a real integer and we can move on.
+#         real_integer = True     # this will take us out of the while loop
+#     except ValueError:
+#         print("Only whole integers are accepted.  I bet you didn't enter a whole integer.")
+# collatz(number)
+
+
+
+
+# This is a clean solution, but doesn't protect against 0 or negative numbers
+#  def collatz(number):
 
 #     if number % 2 == 0:
 #         print(number // 2)
