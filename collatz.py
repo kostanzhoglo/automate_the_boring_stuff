@@ -7,21 +7,21 @@ def collatz(number):
         print(number * 3 + 1)
         return number * 3 + 1
 
-valid = False
+valid = False   # ensures we keep asking for good input until we get it.
 
 while not valid: 
     num = input("Please enter a positive integer: ")
     try:
-        num = int(num)
-        if num < 1:
+        num = int(num)  # make sure input is a number
+        if num < 1:     # make sure number is positive
             print("Entering 0 or a negative number is not cool dude.")
-        elif num == 1:
+        elif num == 1:  # 1 is a special case
             for i in range(1, 4):
-                num = collatz(int(num))
+                num = collatz(num)
             valid = True
         else:
             while num != 1:
-                num = collatz(int(num))   
+                num = collatz(num)   
             valid = True
     except ValueError:
         print("Aw, cmon, enter a Whole Integer!")
