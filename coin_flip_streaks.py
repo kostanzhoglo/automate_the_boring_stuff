@@ -29,8 +29,8 @@ while experiment_reps < 10000:
     experiment_reps += 1
 
 print(f"Streak of 6 in a row: {str(numberOfStreaks)}")
-print(f"Total Coin Flips: {str(experiment_reps) * 100}")
-print(f"The odds of getting 6 Tails or 6 Heads in a row is: {str((in_a_row / 10000))}")
+print(f"Total Coin Flips: {str((experiment_reps) * 100)}")
+print(f"The odds of getting 6 Tails or 6 Heads in a row is: {str((numberOfStreaks / 10000))}")
 
 # def coinFlip():
 #     totalTails = 0
